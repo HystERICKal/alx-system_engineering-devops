@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# Read and cut
+
+the_file="/etc/passwd"
+
+cut -d: -f1,4,6 $the_file | while read -r sentence
+do
+  echo "$sentence"
+done
