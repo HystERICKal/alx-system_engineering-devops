@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# Same as before but use until
+num=1
+until [ $num -gt 10 ]
+do
+	echo "Holberton School"
+	((num++))
+done
