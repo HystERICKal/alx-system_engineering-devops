@@ -3,6 +3,6 @@
 num=1
 until [ $num -gt 10 ]
 do
-	echo "Holberton School"
+	echo "Best School"
 	((num++))
 done

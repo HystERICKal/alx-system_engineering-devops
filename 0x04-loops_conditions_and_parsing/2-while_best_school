@@ -5,6 +5,6 @@ num=1
 
 while [ $num -le 10 ]
 do
-	echo "Holberton School"
+	echo "Best School"
 	((num++))
 done
