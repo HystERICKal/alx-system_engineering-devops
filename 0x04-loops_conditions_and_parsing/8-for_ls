@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+# This is for ls
+
+the_list=$(ls)
+for num in $the_list
+do
+  cut -d- -f2 <<< "$num"
+done

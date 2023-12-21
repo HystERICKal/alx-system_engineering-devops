@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This is the clock
+numx=0
+numy=1
+while [ $numx -lt 13 ]
+do
+	echo "Hour: $numx"
+	while [ $numy -le 59 ]
+	do
+		echo "$numy"
+		((numy++))
+	done
+	numy=1
+	((numx++))
+done
