@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# Tell the story of the passwd file
+the_file="/etc/passwd"
+p1=""
+p2=""
+p3=""
+while IFS= read -r sentence
+do
+    p1="$(echo "$sentence" | cut -d":" -f1)"
+    p2="$(echo "$sentence" | cut -d":" -f4)"
+    p3="$(echo "$sentence" | cut -d":" -f6)"
+    p4="$(echo "$sentence" | cut -d":" -f7)"
+    p5="$(echo "$sentence" | cut -d":" -f3)"
+    p6="$(echo "$sentence" | cut -d":" -f2)"
+    p7="$(echo "$sentence" | cut -d":" -f5)"
+    echo "The user ${p1} is part of the ${p2} gang, lives in ${p3} and rides ${p4}. ${p5}'s place is protected by the passcode ${p6}, more info about the user here: ${p7}"
+done < "$the_file"
