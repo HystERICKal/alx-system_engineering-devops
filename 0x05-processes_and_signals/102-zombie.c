@@ -22,7 +22,7 @@ int infinite_while(void)
 int main(void)
 {
 	int x;
-	parent_id_t parent_id;
+	pid_t parent_id;
 
 	for (x = 0; x < 5; x++)
 	{
