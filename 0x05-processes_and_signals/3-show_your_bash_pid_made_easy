@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# easier Bash PID showcase
+
+pgrep -l bash

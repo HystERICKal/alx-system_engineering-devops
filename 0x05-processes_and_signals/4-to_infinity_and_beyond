@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# indefinitely display a string
+
+num=0
+while [ $num -le 2 ]
+do
+	echo "To infinity and beyond"
+	sleep 2
+done
