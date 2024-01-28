@@ -1,0 +1,13 @@
+Integrating an additional server into our system serves two purposes: enhancing redundancy and alleviating congestion through the incorporation of a load balancer. This holistic approach aims to boost the overall performance of the website.
+
+To achieve an efficient load distribution, we plan to implement the round robin distribution algorithm within the load balancer. This algorithm functions by assigning requests to servers based on request numbers. Specifically, odd-numbered requests will be directed to server 1, while even-numbered requests will be routed to server 2. 
+
+The load balancer supports an Active-Active setup, where both servers operate simultaneously. This configuration is chosen to mitigate congestion and distribute the workload more evenly, deviating from the traditional Active-Passive setup where one server remains on standby for redundancy.
+
+In the context of database management, the Primary-Replica cluster is synchronized with the Master database, updating whenever the Master database undergoes changes. Replication, being event-driven, means the replica node relies on data from the primary node.
+
+Identifying Single Points of Failure (SPOFs) in our system, we recognize vulnerabilities in the client's internet connection, web servers' connectivity to the internet, and potential malfunctions in the load balancer.
+
+Additionally, it's crucial to note that our current server setup lacks firewalls and does not employ HTTPS, rendering it susceptible to security threats. The absence of monitoring tools further compounds our challenges, making it difficult to anticipate peak hours, identify congestion triggers, and facilitate swift recovery from such instances. Addressing these aspects is imperative for enhancing the overall robustness and security of our system.
+
+https://imgur.com/a/RPjiw9N
