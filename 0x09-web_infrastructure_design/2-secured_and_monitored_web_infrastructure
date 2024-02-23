@@ -1,0 +1,11 @@
+The inclusion of firewalls is aimed at enhancing security for both the load balancer and the two servers. Additionally, HTTPS is implemented to encrypt incoming requests and their corresponding responses. The decision to use HTTPS is rooted in its heightened security features.
+
+The incorporation of monitoring serves multiple purposes, such as identifying potential points of failure, managing congestion, and facilitating strategic updates by recognizing peak hours. The server monitor operates within a container alongside various others on a host, enabling the collection of metrics from neighboring containers and the host itself.
+
+To gauge the performance of the web server in terms of Queries Per Second, a scheduled job executing a `SHOW STATUS` query can be employed at specified intervals.
+
+While terminating SSL at the load balancer level is convenient, it introduces a security risk. Unauthorized access beyond the load balancer could allow eavesdropping on requests and responses. If the MySQL server were to fail, there is a risk of losing all data changes from the writes.
+
+The replication of servers with identical components may pose a challenge, as both servers could potentially be overwhelmed by congestion.
+
+https://imgur.com/a/xJ2W5sD

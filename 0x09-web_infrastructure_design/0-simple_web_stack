@@ -1,0 +1,14 @@
+When a user inputs the URL (www.foobar.com) into their browser's search bar, the browser initiates a process to obtain the corresponding IP address. Initially, the browser checks its cache for the IP; if unavailable, the operating system (OS) cache is consulted. If the OS cache also lacks the IP, the resolver communicates with the root server, which redirects it to the Top-Level Domain (TLD) server. The resolver caches the TLD server's IP and queries it for the Authoritative Name Server's IP, storing it in its cache. The final step involves obtaining the IP for www.foobar.com from the authoritative name server, which is then relayed to the browser, allowing swift access.
+
+A server, serving as a recipient for client HTTP requests, responds to these requests. 
+The conversion of a domain name into an IP address facilitates the client in locating the server for interaction. 
+The "www" in www.foobar.com signifies an A record. 
+The web server delivers content, such as static web pages or files. 
+The application server supports server-side scripting, enabling static web page alterations based on database data. Additionally, the application server can modify the codebase or database. 
+The database contains pertinent data for scripting web pages. 
+Communication with user computers that request the website follows the OSI model and TCP/IP.
+
+In the infrastructure, potential points of failure include the user's internet connection, the server's internet connection, and potential issues with the web server. 
+As there's only one server, downtime becomes unavoidable during necessary updates. To mitigate this, updates should be scheduled during periods of minimal user activity on www.foobar.com. Congestion may occur due to high traffic, preventing the server from scaling to handle increased requests, given its singular nature.
+
+https://imgur.com/a/dabNFOD
