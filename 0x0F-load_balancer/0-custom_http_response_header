@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 #The second webserver
-
 apt-get update
 apt-get install -y nginx
 
 sudo mkdir -p /var/www/html
 sudo touch /var/www/html/index.html
-echo "Holberton School" > /var/www/html/index.html
+echo "Hello World!" > /var/www/html/index.html
 sudo touch /var/www/html/custom_404.html
 echo "Ceci n'est pas une page" > /var/www/html/custom_404.html
 
