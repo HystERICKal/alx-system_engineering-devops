@@ -4,9 +4,9 @@
 
 check_domain() {
     #configuring domain zone
-    the_subd=("www"  "lb-01" "web-01" "web-02")
+    SUBDOMAINS=("www"  "lb-01" "web-01" "web-02")
     if [ -z "$2" ]; then
-	for x in "${the_subd[@]}"; do
+	for x in "${SUBDOMAINS[@]}"; do
 	    dig "$x.$1" | grep -A1 'ANSWER SECTION:' | tail -n1 | awk '{split($0, SUBDOMAIN, "."); print "The subdomain " SUBDOMAIN[1] " is a " $4 " record and points to " $5}'
 	done
     else
