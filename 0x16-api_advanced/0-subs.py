@@ -1,20 +1,17 @@
 #!/usr/bin/python3
-"""Reddit sub counter."""
-import requests
-from sys import argv
+"""Reddit Sub Counter."""
 
 
 def number_of_subscribers(subreddit):
-    """Reddit sub counter."""
-    redditor = {'User-Agent': 'Lizzie'}
-    the_link = requests.get('https://www.reddit.com/r/{}/about.json'
-                            .format(subreddit), headers=redditor).json()
-    try:
-        return the_link.get('data').get('subscribers')
-    except Exception:
+    """Reddit Sub Counter."""
+    import requests
+
+    the_results = requests.get("https://www.reddit.com/r/{}/about.json"
+                            .format(subreddit),
+                            headers={"User-Agent": "Erick_N"},
+                            allow_redirects=False)
+    if the_results.status_code >= 300:
         return 0
 
-
-if __name__ == "__main__":
-    number_of_subscribers(argv[1])
+    return the_results.json().get("data").get("subscribers")
 
