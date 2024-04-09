@@ -1,31 +1,28 @@
 #!/usr/bin/python3
-"""Recursive version."""
-import requests
+"""Code Task 2."""
 
 
-def recurse(subreddit, hot_list=[], testr="", tally=0):
-    """Recursive version."""
-    url = "https://www.reddit.com/r/{}/hot/.json".format(subreddit)
-    the_agent = {
-        "User-Agent": "Erick_N"
-    }
-    contens = {
-        "after": testr,
-        "count": tally,
-        "limit": 100
-    }
-    response = requests.get(url, headers=the_agent, params=contens,
-                            allow_redirects=False)
-    if response.status_code == 404:
+def recurse(subreddit, hot_list=[], count=0, after=None):
+    """Code Task 2."""
+    import requests
+
+    the_results = requests.get("https://www.reddit.com/r/{}/hot.json"
+                               .format(subreddit),
+                               params={"count": count, "after": after},
+                               headers={"User-Agent": "My-User-Agent"},
+                               allow_redirects=False)
+    if the_results.status_code >= 400:
         return None
 
-    output = response.json().get("data")
-    testr = output.get("after")
-    tally = tally + output.get("dist")
-    for i in output.get("children"):
-        hot_list.append(i.get("data").get("title"))
+    temp_r = hot_list + [i.get("data").get("title")
+                         for i in the_results.json()
+                         .get("data")
+                         .get("children")]
 
-    if testr is not None:
-        return recurse(subreddit, hot_list, testr, tally)
-    return hot_list
+    info = the_results.json()
+    if not info.get("data").get("after"):
+        return temp_r
+
+    return recurse(subreddit, temp_r, info.get("data").get("count"),
+                   info.get("data").get("after"))
 
