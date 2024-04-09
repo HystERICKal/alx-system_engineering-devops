@@ -6,7 +6,7 @@ from sys import argv
 
 def number_of_subscribers(subreddit):
     """Reddit sub counter."""
-    redditor = {'User-Agent': 'Mozilla/5.0'}
+    redditor = {'User-Agent': 'Lizzie'}
     the_link = requests.get('https://www.reddit.com/r/{}/about.json'
                             .format(subreddit), headers=redditor).json()
     try:
