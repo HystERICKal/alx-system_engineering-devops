@@ -7,12 +7,12 @@ def top_ten(subreddit):
     import requests
 
     the_results = requests.get("https://www.reddit.com/r/{}/hot.json?limit=10"
-                            .format(subreddit),
-                            headers={"User-Agent": "Erick_N"},
-                            allow_redirects=False)
+                               .format(subreddit),
+                               headers={"User-Agent": "Erick_N"},
+                               allow_redirects=False)
     if the_results.status_code >= 300:
         print('None')
     else:
         [print(i.get("data").get("title"))
          for i in the_results.json().get("data").get("children")]
-        
+
